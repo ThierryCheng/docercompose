@@ -1,0 +1,14 @@
+version: "2.1"
+services:
+  baidunetdisk:
+    image: johngong/baidunetdisk:latest
+    container_name: baidunetdisk
+    environment:
+      - TZ=Etc/UTC
+    volumes:
+      - /mnt/user/media/baidunetdisk:/download/
+      - /mnt/user/appdata/baidunetdisk/config:/config
+
+    ports:
+      - 8092:5800
+    restart: always

@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  homepage:
+    image: hslr/sun-panel:latest
+    container_name: sun-panel
+    ports:
+      - 3334:3002
+    volumes:
+      - /mnt/user/appdata/sun-panel/config:/app/conf # Make sure your local config directory exists
+      - /mnt/user/appdata/sun-panel/config/uploads:/app/uploads
+      - /mnt/user/appdata/sun-panel/config/database:/app/database 
+      - /var/run/docker.sock:/var/run/docker.sock:ro 
+    restart: always

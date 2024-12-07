@@ -1,0 +1,41 @@
+version: '3.3'
+
+services:
+
+    moviepilot:
+        stdin_open: true
+        tty: true
+        container_name: moviepilot-v2
+        hostname: moviepilot-v2
+        networks:
+            - moviepilot
+        ports:
+            - target: 3000
+              published: 3000
+              protocol: tcp
+        volumes:
+            - '/mnt/user/media:/media'
+            - '/mnt/user/appdata/moviepilot2:/config'
+            - '/mnt/user/appdata/moviepilot2/core:/moviepilot/.cache/ms-playwright'
+            - '/mnt/user/appdata/qbittorrent/config/qBittorrent/BT_backup:/BT_backup'
+            - '/var/run/docker.sock:/var/run/docker.sock:ro'
+        environment:
+            - 'NGINX_PORT=3000'
+            - 'PORT=3001'
+            - 'PUID=0'
+            - 'PGID=0'
+            - 'UMASK=000'
+            - 'TZ=Asia/Shanghai'
+            - 'AUTH_SITE=iyuu,hdfans'
+            - 'IYUU_SIGN=IYUU141Tb4ff3f7f3f4f9416f351e7002983f8735a08f08a'
+            - 'HDFANS_UID=48206'
+            - 'HDFANS_PASSKEY=811f4b82afd04bd2ed36628c00c4257f'            
+            - 'SUPERUSER=admin'
+            - 'PROXY_HOST=http://192.168.50.234:1080'
+
+        restart: always
+        image: jxxghp/moviepilot-v2:latest
+
+networks:
+  moviepilot:
+    name: moviepilot

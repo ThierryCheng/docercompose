@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  qbittorrent:
+    image: easychen/cookiecloud:latest
+    container_name: cookiecloud
+    environment:
+      - TZ=Etc/UTC
+    volumes:
+      - /mnt/user/appdata/cookiecloud/config:/config
+    ports:
+      - 8088:8088
+    restart: always

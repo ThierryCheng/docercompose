@@ -1,0 +1,15 @@
+version: "3"
+services:
+  chinesesubfinder:
+    image: allanpk716/chinesesubfinder:latest
+    container_name: chinesesubfinder
+    volumes:
+      - /mnt/user/appdata/chinesesubfinder/config:/config
+      - /mnt/user/appdata/chinesesubfinder/cache:/app/cache
+      - /mnt/usr/media/link/电影:/media/movie
+      - /mnt/usr/media/link/电视剧:/media/tv
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 19035:19035
+    restart: unless-stopped

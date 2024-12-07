@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  qbittorrent:
+    image: linuxserver/qbittorrent:14.3.9
+    container_name: qbittorrent
+    environment:
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8999
+    volumes:
+      - /mnt/user/media/:/media/
+      - /mnt/user/appdata/qbittorrent/config:/config
+
+    ports:
+      - 8999:8999
+      - 52000:52000
+    restart: always

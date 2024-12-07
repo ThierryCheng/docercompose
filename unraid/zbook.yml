@@ -1,0 +1,17 @@
+version: "3"
+services:
+  zbook:
+    image: bigmouse0001/zbook:latest
+    volumes:
+      - /mnt/user/appdata/zbook/config:/config
+      - /mnt/user/appdata/zbook/index:/index
+    environment:
+      - PERMS=true        # 是否重设/media权限
+      - TZ=Asia/Shanghai  # 时区
+      - UMASK=022         # 权限掩码
+    restart: always
+    network_mode: bridge
+    hostname: zbook
+    container_name: zbook
+    ports:
+      - 9000:80
