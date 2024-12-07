@@ -1,6 +1,6 @@
 version: "2.1"
 services:
-  qbittorrent:
+  cookiecloud:
     image: easychen/cookiecloud:latest
     container_name: cookiecloud
     environment:
