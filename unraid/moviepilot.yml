@@ -17,7 +17,8 @@ services:
             - '/mnt/user/media:/media'
             - '/mnt/user/appdata/moviepilot2:/config'
             - '/mnt/user/appdata/moviepilot2/core:/moviepilot/.cache/ms-playwright'
-            - '/mnt/user/appdata/qbittorrent/config/qBittorrent/BT_backup:/BT_backup'
+            - '/mnt/user/appdata/qbittorrent/config/qBittorrent/BT_backup:/qb'
+            - '/mnt/user/appdata/transmission/torrents:/tr'
             - '/var/run/docker.sock:/var/run/docker.sock:ro'
         environment:
             - 'NGINX_PORT=3000'
