@@ -1,0 +1,8 @@
+ services:
+  aipan:
+    image: unilei/aipan-netdisk-search:latest # 如果你想从 Docker Hub 获取镜像，可以使用这一行
+    container_name: aipan-netdisk-search-app
+    restart: always # 确保容器在停止后自动重启
+    ports:
+      - "3003:3000" # 映射容器的 3000 端口到宿主机的 3000 端口
+

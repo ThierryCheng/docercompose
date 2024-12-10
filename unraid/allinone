@@ -1,0 +1,10 @@
+services:
+  allinone:
+    image: youshandefeiyang/allinone
+    container_name: allinone
+    privileged: true
+    restart: always
+    ports:
+      - "35455:35455"
+    network_mode: bridge
+    command: -tv=true -aesKey="6q4zcxbm7i5e5q5morv1hbgzckg7uqsg"
